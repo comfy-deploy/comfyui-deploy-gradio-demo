@@ -123,6 +123,8 @@ with gr.Blocks() as demo:
     # ComfyDeploy Gradio Interface
 
     This is a Gradio interface for a ComfyDeploy workflow. You can interact with the deployed model using the inputs below.
+    
+    Model Using
 
     To clone this workflow, visit: [ComfyDeploy Gradio Flux](https://www.comfydeploy.com/share/comfy-deploy-gradio-flux)
     """)
@@ -160,7 +162,7 @@ with gr.Blocks() as demo:
                             res2 = await client.run.get_async(run_id=res.object.run_id)
                             print("checking ", res2.object.progress, res2.object.live_status)
                             progress_value = res2.object.progress if res2.object.progress is not None else 0
-                            progress(progress_value, desc=f"{res2.object.live_status}")
+                            progress(progress_value, desc=f"{res2.object.live_status if res2.object.live_status is not None else 'Cold starting...'}")
 
                             if res2.object is not None and res2.object.status == "success":
                                 # print(res2)
