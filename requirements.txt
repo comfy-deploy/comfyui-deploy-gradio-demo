@@ -1,2 +1,4 @@
 comfydeploy==0.3.4
 gradio==4.41.0
+gradio_imageslider
+python-dotenv

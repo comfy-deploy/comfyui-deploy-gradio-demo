@@ -1,3 +1,9 @@
+---
+title: comfyui-deploy-gradio
+app_file: main.py
+sdk: gradio
+sdk_version: 4.41.0
+---
 # ComfyDeploy Gradio Interface
 
 This project provides a Gradio interface for interacting with ComfyDeploy, allowing users to dynamically generate UI components based on deployment input definitions and submit jobs to ComfyDeploy.
