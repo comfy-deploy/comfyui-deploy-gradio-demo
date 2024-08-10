@@ -184,11 +184,12 @@ with gr.Blocks() as demo:
                                         outputs[1] += "\n\n" + "\n".join(output.data.text)
                                 break
                         await asyncio.sleep(2)
-                        
+                    
+                    random_seed_output = []
                     for random_seed in random_seeds:
-                        random_seed.value = randomSeed()
+                        random_seed_output.append(randomSeed())
 
-                    return outputs + random_seeds
+                    return outputs + random_seed_output
                 
                 submit_button.click(fn=main, inputs=inputs, outputs=output_components+random_seeds)
         
