@@ -122,14 +122,16 @@ with gr.Blocks() as demo:
     gr.Markdown("""
     # ComfyDeploy Gradio Interface
 
-    This is a demo Gradio interface for a ComfyUI workflow deployed on ComfyDeploy.
+    This is a demo Gradio interface for a ComfyUI workflow deployed on ComfyDeploy as backend and Gradio as frontend.
+    
+    GitHub: [Source Code](https://github.com/comfy-deploy/comfyui-deploy-gradio-demo)
+    
+    To clone this ComfyUI workflow and deploy, visit: [ComfyDeploy Flux Workflow Demo](https://www.comfydeploy.com/share/comfy-deploy-gradio-flux)
     
     Model Using
     - flux schnell
-    - Workflow Modified from markury - https://civitai.com/models/618997/simpleadvanced-flux1-comfyui-workflows
-    - Optional lora form ogkai, nux - https://civitai.com/models/636355/flux-detailer
-
-    To clone this workflow, visit: [ComfyDeploy Gradio Flux](https://www.comfydeploy.com/share/comfy-deploy-gradio-flux)
+    - [Workflow Modified from markury](https://civitai.com/models/618997/simpleadvanced-flux1-comfyui-workflows)
+    - [Optional lora form ogkai, nux](https://civitai.com/models/636355/flux-detailer)
     
     ComfyDeploy deploy any ComfyUI workflow, install any custom nodes and models. *subject to individual custom nodes and models licenses*
     """)
