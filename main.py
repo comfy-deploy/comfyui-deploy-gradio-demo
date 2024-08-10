@@ -125,38 +125,6 @@ with gr.Blocks() as demo:
     This is a Gradio interface for a ComfyDeploy workflow. You can interact with the deployed model using the inputs below.
 
     To clone this workflow, visit: [ComfyDeploy Gradio Flux](https://www.comfydeploy.com/share/comfy-deploy-gradio-flux)
-
-    ## Example usage of ComfyDeploy SDK:
-
-    ```python
-    from comfydeploy import ComfyDeploy
-    import os
-
-    # Initialize the client
-    client = ComfyDeploy(bearer_auth=os.environ['API_KEY'])
-
-    # Get input definitions
-    deployment_id = 'your_deployment_id'
-    res = client.deployment.get_input_definition(id=deployment_id)
-    input_definitions = res.response_bodies
-
-    # Run the model
-    inputs = {
-        'prompt': 'A beautiful landscape',
-        'negative_prompt': 'ugly, blurry',
-        'width': 512,
-        'height': 512
-    }
-    res = client.run.create(
-        request={
-            "deployment_id": deployment_id,
-            "inputs": inputs
-        }
-    )
-
-    # Get the results
-    run_id = res.object.run_id
-    result = client.run.get(run_id=run_id)
     """)
     
     with gr.Row():
@@ -222,6 +190,36 @@ with gr.Blocks() as demo:
                 gr.Gallery(),
                 gr.Textbox(label="Text Output"),
             ]
-            
+           
+           
+    gr.Markdown("""
+    ## Example usage of ComfyDeploy SDK:
+
+    ```python
+    from comfydeploy import ComfyDeploy
+    import os
+
+    # Initialize the client
+    client = ComfyDeploy(bearer_auth=os.environ['API_KEY'])
+
+    # Run the model
+    inputs = {
+        'prompt': 'A beautiful landscape',
+        'negative_prompt': 'ugly, blurry',
+        'width': 512,
+        'height': 512
+    }
+    res = client.run.create(
+        request={
+            "deployment_id": deployment_id,
+            "inputs": inputs
+        }
+    )
+
+    # Get the results
+    run_id = res.object.run_id
+    result = client.run.get(run_id=run_id)
+    """)
+     
 if __name__ == "__main__":
     demo.launch(share=True)
